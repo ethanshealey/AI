@@ -14,7 +14,7 @@ disp(vecB)
 % c) Swap first and seconds halves of vector
 %     - Calculate half the length and create a new vector using ranges
 half = ceil(length(v)/2);
-vecC = [v(half + 1: length(v)) v(1: half)];
+vecC = [v(half + 1: end) v(1: half)];
 disp(vecC)
 
 % d) Remove all values under 45
