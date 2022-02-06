@@ -1,4 +1,4 @@
 
-count = myimageprocessing('hpu_gray.jpg', 120);
+count = myimageprocessing('hpu_gray.jpg', 20);
 
 disp(count);
