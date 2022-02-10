@@ -5,7 +5,7 @@ function myKmeansImage(img,k)
     A = double(imread(img));
     % get the row and column size
     % NOTE: z is needed to properly disperse the dimensions
-    % but will remain unused
+    %       but will remain unused
     [r,c,z] = size(A);
     % reshape the image to get each RGB value grouping
     A = reshape(A, [r * c, 3]);
