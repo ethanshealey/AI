@@ -1,5 +1,27 @@
 % Created by Ethan Shealey
 
+%{
+
+-------------------------------------------
+myKmeansImages
+
+This function takes in an image and 
+clusters the pixels by using kmeans.
+The number of clusters is determined
+by the parameter k
+
+Parameters:
+img : the path to the image 
+      (i.e /path/to/image.jpg)
+k   : the number of clusters to calculate
+      this is the number of unique RGB 
+      values that will be mapped into the 
+      original image
+      (i.e 16 for 16 RGB clusters)
+-------------------------------------------
+
+%}
+
 function myKmeansImage(img,k)
     % read in the RGB values of the image
     A = double(imread(img));
