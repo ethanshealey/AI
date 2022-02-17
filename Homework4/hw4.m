@@ -5,25 +5,35 @@ hw4(data, k)
 ==========================================
 
 Created by: Ethan Shealey
+
+This function is meant to replicate the 
+function of the built in kmeans 
+
 Parameters: 
     • data:
-        NxP data matrix
-        N is number of data points
-        P is dimension of data points
+        A NxP data matrix where N is 
+        number of data points and P is 
+        dimension of data points
+       
     • k:
         Number of clusters to generate
+
 Return Values:
     • idx:
-        Nx1 data matrix containing cluster index for each row in data
+        Nx1 data matrix containing cluster 
+        index for each row in data
     • c:
-        KxP data matrix containing k cluster centroids
+        KxP data matrix containing k cluster 
+        centroids
 
 %}
 
 function [idx,c] = hw4(data,k)
 
-    % Initialize the Centroids
+    % Initialize the Centroids matrix
     centroids = zeros(k, size(data, 2));
+
+    % Get random points and fill matrix
     randidx = randperm(size(data, 1));
     centroids = data(randidx(1:k), :);
 
