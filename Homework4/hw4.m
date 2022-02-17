@@ -14,7 +14,6 @@ Parameters:
         A NxP data matrix where N is 
         number of data points and P is 
         dimension of data points
-       
     • k:
         Number of clusters to generate
 
