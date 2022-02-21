@@ -34,7 +34,7 @@ function myKmeansImage(img,k)
     % use the built in kmeans function to get the IDX
     % and mean values for pixels
     [IDX, means] = kmeans(A, k);
-    % get the average values from the IDX
+    % get the clustered values from the IDX
     newc = means(IDX, :);
     % reshape new RGB values back into original image size
     newi = reshape(newc, [r,c,3]);

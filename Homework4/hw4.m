@@ -39,25 +39,33 @@ function [idx,c] = hw4(data,k)
     % Get the Closest Centroids
     sz = size(centroids, 1);
     indicies = zeros(size(data, 1), 1);
+
+    % Get size of data
     m = size(data, 1);
 
+    % Iterate through each point
     for i = 1:m
         ind = 1;
+        % start with the first point as min distance
         min_dist = sum((data(i,:) - centroids(1,:)) .^ 2);
         for j = 2:sz
+            % check if this point is closer, if so replace variable
             dist = sum((data(i,:) - centroids(j,:)) .^ 2);
             if(dist < min_dist)
                 min_dist = dist;
                 ind = j;
             end
         end
+        % add to indicies array
         indicies(i) = ind;
     end
 
     % Recompute the Centroids
     centers = zeros(k, size(data, 2));
 
+    % Iterate through each cluster
     for i = 1:k
+        % Recalc centers
         datai = data(indicies==i,:);
         ck = size(datai, 1);
         centers(i, :) = (1/ck) * sum(datai);
