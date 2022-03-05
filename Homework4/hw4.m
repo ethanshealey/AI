@@ -37,10 +37,10 @@ function [idx,c] = hw4(data,k)
     centroids = data(randidx(1:k), :);
 
     % Get the Closest Centroids
-    sz = size(centroids, 1);
     indicies = zeros(size(data, 1), 1);
 
-    % Get size of data
+    % Get size of centroids and data
+    sz = size(centroids, 1);
     m = size(data, 1);
 
     % Iterate through each point
@@ -76,4 +76,3 @@ function [idx,c] = hw4(data,k)
     c = centers;
 
 end
-

@@ -50,7 +50,7 @@ function project1(imageFileName, k)
     end
     % Save the image as <original-filname>-tumor.jpg
     fn = split(imageFileName, '.');
-    imwrite(uint8(max_red_img), [fn{1} '-tumor.jpg'])
+    imwrite(uint8(max_red_img), [fn(1) '-tumor.jpg'])
     % Show the image determined to be most likely the tumor
     imshow(uint8(max_red_img));
 end
