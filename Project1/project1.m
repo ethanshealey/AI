@@ -1,3 +1,24 @@
+%{
+    Ethan Shealey
+    project1(imageFileName, k)
+    =======================================================
+    This function is intended to seperate tumor regions
+    from the rest of an MRI image by using the Fuzzy C-Means
+    algorithm. After getting each clustered image from the 
+    original, find which has the greatest average red value.
+
+    Parameters:
+        • imageFileName: the name of the file to be clustered
+        • k: the number of clusters to produce
+
+    Output:
+        • Saves an image called "<imageFileName>-tumor.jpg" to the same
+          folder that program is in
+        • Displays the new image to the screen
+
+    
+%}
+
 function project1(imageFileName, k)
 
     % read in the image
@@ -10,15 +31,15 @@ function project1(imageFileName, k)
     img = reshape(img, rows*cols, dims);
     
     % call FCM and store its returned values
-    [centroids, U] = fcm(img, k);
+    [~, U] = fcm(img, k);
 
     % get maximum values and their indicies from U
-    [z, idx] = max(U);
+    [~, idx] = max(U);
 
     max_red = 0;
    
     for i = 1:k
-        % initialize a vetor of false of the same length of index
+        % initialize a vector of false of the same length of index
         subindex = false(1, length(idx));
         % Set the positions belonging to the ith cluster to true
         subindex(idx==i) = true;
@@ -34,10 +55,10 @@ function project1(imageFileName, k)
         background_idx = background == 0;
 
         % get the red values from clustered image (above 200)
-        red_channel = subimage(:,:,1) > 200;
+        reds = subimage(:,:,1) > 200;
 
         % get the average red value, not including background
-        red_avg = uint8(mean(red_channel(~background_idx)));
+        red_avg = uint8(mean(reds(~background_idx)));
 
         % check images red value against the previously stored
         % average
