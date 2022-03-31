@@ -10,6 +10,9 @@
         y: filter matrix
         p: padding value
         s: stride value
+
+    Outputs:
+	filtered: The new filtered matrix
 %}
 
 function filtered = myconv(x, y, p, s)
