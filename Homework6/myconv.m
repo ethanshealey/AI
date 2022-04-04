@@ -28,11 +28,11 @@ function filtered = myconv(x, y, p, s)
     filtered = zeros(nf, mf);
     
     % setup some variables
-    rs = 1; % starting row
-    re = ny; % ending row
-
-    ir = 1; % insert row
-    ic = 1; % insert col
+    [rs, re, ir, ic] = deal(1, ny, 1, 1); 
+    % rs: starting row
+    % re: ending row
+    % ir: insert row
+    % ic: insert col
     
     % iter through input matrix
     while re <= nx
